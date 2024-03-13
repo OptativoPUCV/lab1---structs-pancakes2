@@ -9,14 +9,33 @@ Ejercicio 1: Encuentra el Elemento Mayor
 Descripción: Escribe una función que tome un arreglo de enteros
 y su tamaño, y devuelva el valor más grande del arreglo.
 */
-int findMax(int arr[], int size) { return 0; }
+int findMax(int arr[], int size) {
+  int elemMayor = 0;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] > elemMayor) {
+      elemMayor = arr[i];
+    }
+  }
+  return 0;
+}
+
+ // Itera el arreglo hasta encontrar el elemento mayor
 
 /*
 Ejercicio 2: Invertir un Arreglo
 Descripción: Escribe una función que tome un arreglo y su tamaño, y luego
 invierta el orden de sus elementos.
 */
-void reverseArray(int arr[], int size) {}
+void reverseArray(int arr[], int size) {
+  int* arregloInverso = (int*)malloc(size * sizeof(int));
+  int indice = size - 1;
+  for (int i = 0; i < size; i++) {
+    // Itera el arreglo desde el indice final del arreglo input
+    arregloInverso[i] = arr[indice];
+  }
+    
+  
+}
 
 /*
 Ejercicio 3: Filtrar Números Pares
