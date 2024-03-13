@@ -34,6 +34,9 @@ void reverseArray(int arr[], int size) {
     arregloInverso[i] = arr[indice];
     indice--;
   }
+  for (int i = 0; i < size; i++) {
+    arr[i] = arregloInverso[i];
+  }
 }
 
 /*
