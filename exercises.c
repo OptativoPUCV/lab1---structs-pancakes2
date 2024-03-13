@@ -9,6 +9,12 @@ Ejercicio 1: Encuentra el Elemento Mayor
 Descripción: Escribe una función que tome un arreglo de enteros
 y su tamaño, y devuelva el valor más grande del arreglo.
 */
+
+int compare(const void *a, const void *b) {
+  return (*(int*)a - *(int*)b);
+}
+
+
 int findMax(int arr[], int size) {
   int elemMayor = 0;
   for (int i = 0; i < size; i++) {
@@ -65,8 +71,17 @@ Descripción: Escribe una función que tome dos arreglos
 ordenados y sus tamaños, y luego fusione estos dos
 arreglos en un tercer arreglo también ordenado.
 */
-void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
-                       int result[]) {}
+void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2, int result[]) {
+  for (int i = 0; i < size1+size2; i++) {
+    if (i < size1) {
+      result[i] = arr1[i];
+    } else {
+      result[i] = arr2[i-size1];
+    }
+  }
+  qsort(result, size1+size2, sizeof(int), compare);
+  
+}
 
 /*
 Ejercicio 5: Comprobación de Ordenación
