@@ -32,8 +32,8 @@ void reverseArray(int arr[], int size) {
   for (int i = 0; i < size; i++) {
     // Itera el arreglo desde el indice final del arreglo input
     arregloInverso[i] = arr[indice];
+    indice--;
   }
-  arr = arregloInverso;
 }
 
 /*
