@@ -92,7 +92,8 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
 int checkSorted(int arr[], int size) {
   int ascendente = 1;
   int decreciente = 1;
-
+  
+  // Checkeamos en un solo 'for loop' ambas condiciones para ahorrar tiempo
   for (int i = 0; i < size-1; i++) {
     // Checkeamos si el arreglo está ordenado de forma ascendente
     if (arr[i] < arr[i+1]) {
@@ -100,15 +101,15 @@ int checkSorted(int arr[], int size) {
     // Checkeamos si es decreciente..
     } else if (arr[i] > arr[i+1]) {
       decreciente++;
+    // Si el numero siguiente no es ni ascendente ni decreciente sumamos a ambos
     } else if (arr[i] == arr[i+1]) {
       decreciente++;
       ascendente++;
     }
   }
-  // Lógica para determinar si es ascendente, descendiente o no ordenado
+
   // Si cada número cumple con la condición de ser igual al tamaño, entonces cada número está ordenado
   // Si no cumple con ninguna entonces este no estaría ordenado
-  printf("ascendente: %d, decreciente: %d\n", ascendente, decreciente);
   if (ascendente == size) {
     return 1;
   } else if (decreciente == size) {
@@ -167,5 +168,28 @@ typedef struct nodo {
 } Nodo;
 
 Nodo *crearListaEnlazada(int arr[], int size) { 
-    return NULL;
+  // Inicializamos un nodo que no apunta a nada aún
+  Nodo *cabeza = NULL;
+  Nodo *actual = NULL;
+
+  // Iteramos el arreglo y creamos un nodo por cada elemento
+  // Al igual que popularlos y enlazarlos con los nodos anteriores.
+  for (int i = 0; i < size; i++) {
+      Nodo *nodo = malloc(sizeof(Nodo));
+      nodo->numero = arr[i];
+      nodo->siguiente = NULL;
+
+      // Si la cabeza está vacía, entonces el nodo actual es la cabeza
+      if (cabeza == NULL) {
+          cabeza = nodo;
+          actual = nodo;
+      // Si no, entonces el nodo actual apunta al nodo siguiente
+      } else {
+          actual->siguiente = nodo;
+          actual = nodo;
+      }
+  }
+
+  // Retornamos la cabeza, que es el primer nodo de la lista
+  return cabeza;
 }
