@@ -105,9 +105,11 @@ int checkSorted(int arr[], int size) {
     // Lógica para determinar si es ascendente, descendiente o no ordenado
     // Si cada número cumple con la condición de ser igual al tamaño, entonces cada número está ordenado
     // Si no cumple con ninguna entonces este no estaría ordenado
-    if (ascendente == size) {
+    printf("%d", ascendente);
+    if (ascendente == size-1) {
+      
       return 1;
-    } else if (decreciente == size) {
+    } else if (decreciente == size-1) {
       return -1;
     } else {
       return 0;
