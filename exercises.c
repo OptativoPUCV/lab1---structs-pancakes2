@@ -93,7 +93,7 @@ int checkSorted(int arr[], int size) {
     // 6
     int ascendente = 0; int decreciente = 0;
 
-    for (int i = 0; i < size-1; i++) {
+    for (int i = 0; i < size; i++) {
       // Checkeamos si el arreglo está ordenado de forma ascendente
       if (arr[i] <= arr[i+1]) {
         ascendente++;
