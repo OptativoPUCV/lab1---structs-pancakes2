@@ -134,11 +134,18 @@ typedef struct {
 } Libro;
 
 void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor, int anioNacimiento, int anioPublicacion) {
-    // Inicializo el libro
-    scanf("%s", libro->titulo); // Inicializo el titulo del libro
-    scanf("%s", libro->autor.nombre); // Inicializo el nombre del autor
-    scanf("%d", &libro->autor.anioNacimiento); // Inicializo el año de nacimiento del autor
-    scanf("%d", &libro->anioPublicacion); // Inicializo el año de publicación del libro
+  // Defino una variable "cantidadLibros" que es dinamica y se le suma uno por cada libro que se inicializa
+
+
+  // Inicializo el libro
+  scanf("%s", libro->titulo); // Inicializo el titulo del libro
+  scanf("%s", libro->autor.nombre); // Inicializo el nombre del autor
+  scanf("%d", &libro->autor.anioNacimiento); // Inicializo el año de nacimiento del autor
+  scanf("%d", &libro->anioPublicacion); // Inicializo el año de publicación del libro
+  printf("%s\n", libro->titulo);
+  printf("%s\n", libro->autor.nombre);
+  printf("%d\n", libro->autor.anioNacimiento);
+  printf("%d\n", libro->anioPublicacion);
 }
 
 /*

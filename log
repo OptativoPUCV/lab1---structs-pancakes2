@@ -133,3 +133,23 @@ exercises.c:141:5: error: ignoring return value of ‘scanf’ declared with att
 cc1: all warnings being treated as errors
 Compilation failed
 eaa7ce0
+Sat 16 Mar 2024 03:04:26 AM UTC: 
+ exercises.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+In file included from test.c:1:
+exercises.c: In function ‘inicializarLibro’:
+exercises.c:141:3: error: ignoring return value of ‘scanf’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+  141 |   scanf("%s", libro->titulo); // Inicializo el titulo del libro
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+exercises.c:142:3: error: ignoring return value of ‘scanf’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+  142 |   scanf("%s", libro->autor.nombre); // Inicializo el nombre del autor
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+exercises.c:143:3: error: ignoring return value of ‘scanf’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+  143 |   scanf("%d", &libro->autor.anioNacimiento); // Inicializo el año de nacimiento del autor
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+exercises.c:144:3: error: ignoring return value of ‘scanf’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+  144 |   scanf("%d", &libro->anioPublicacion); // Inicializo el año de publicación del libro
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c6397c4
