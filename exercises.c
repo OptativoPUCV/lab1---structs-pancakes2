@@ -63,7 +63,7 @@ int *filterEvenNumbers(int arr[], int size, int *newSize) {
   *newSize = indice;
   return arregloPares;
 }
-  
+
 
 /*
 Ejercicio 4: Fusión de dos Arreglos Ordenados
@@ -80,7 +80,7 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2, int result[
     }
   }
   qsort(result, size1+size2, sizeof(int), compare);
-  
+
 }
 
 /*
@@ -90,15 +90,28 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
   0 si no está ordenado, y -1 si está ordenado en orden descendente.
 */
 int checkSorted(int arr[], int size) {
-  int ascending = arr[0] <= arr[1] ? 1 : -1;
+    int ascendente = 0; int decreciente = 0;
 
-  for (int i=1; i < size - 1; i++) {
-    if ((ascending == 1 && arr[i] > arr[i+1]) || (ascending == -1 && arr[i] < arr[i+1])) {
+    for (int i = 0; i < size-1; i++) {
+      // Checkeamos si el arreglo está ordenado de forma ascendente
+      if (arr[i] <= arr[i+1]) {
+        ascendente++;
+      // Checkeamos si es decreciente..
+      } else if (arr[i] >= arr[i+1]) {
+        decreciente++;
+      }
+    }
+    // Lógica para determinar si es ascendente, descendiente o no ordenado
+    // Si cada número cumple con la condición de ser igual al tamaño, entonces cada número está ordenado
+    // Si no cumple con ninguna entonces este no estaría ordenado
+    if (ascendente == size-1) {
+      return 1;
+    } else if (decreciente == size-1) {
+      return -1;
+    } else {
       return 0;
     }
-  }
-  
-  return ascending;
+
 }
 
 /*
@@ -120,10 +133,13 @@ typedef struct {
   int anioPublicacion;
 } Libro;
 
-void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
-                      int anioNacimiento, int anioPublicacion) {
-  
-                      }
+void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor, int anioNacimiento, int anioPublicacion) {
+    // Inicializo el libro
+    scanf("%s", libro->titulo); // Inicializo el titulo del libro
+    scanf("%s", libro->autor.nombre); // Inicializo el nombre del autor
+    scanf("%d", &libro->autor.anioNacimiento); // Inicializo el año de nacimiento del autor
+    scanf("%d", &libro->anioPublicacion); // Inicializo el año de publicación del libro
+}
 
 /*
 Ejercicio 7: Lista enlazada de números
@@ -142,5 +158,5 @@ typedef struct nodo {
 } Nodo;
 
 Nodo *crearListaEnlazada(int arr[], int size) { 
-  return NULL;
+    return NULL;
 }
