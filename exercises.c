@@ -90,31 +90,27 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
   0 si no está ordenado, y -1 si está ordenado en orden descendente.
 */
 int checkSorted(int arr[], int size) {
-    // 6
-    int ascendente = 0; int decreciente = 0;
+  int ascendente = 0; int decreciente = 0;
 
-    for (int i = 0; i < size; i++) {
-      // Checkeamos si el arreglo está ordenado de forma ascendente
-      if (arr[i] <= arr[i+1]) {
-        ascendente++;
-      // Checkeamos si es decreciente..
-      } else if (arr[i] >= arr[i+1]) {
-        decreciente++;
-      }
+  for (int i = 0; i < size-1; i++) {
+    // Checkeamos si el arreglo está ordenado de forma ascendente
+    if (arr[i] <= arr[i+1]) {
+      ascendente++;
+    // Checkeamos si es decreciente..
+    } else if (arr[i] >= arr[i+1]) {
+      decreciente++;
     }
-    // Lógica para determinar si es ascendente, descendiente o no ordenado
-    // Si cada número cumple con la condición de ser igual al tamaño, entonces cada número está ordenado
-    // Si no cumple con ninguna entonces este no estaría ordenado
-    printf("%d", ascendente);
-    if (ascendente == size-1) {
-      
-      return 1;
-    } else if (decreciente == size-1) {
-      return -1;
-    } else {
-      return 0;
-    }
-
+  }
+  // Lógica para determinar si es ascendente, descendiente o no ordenado
+  // Si cada número cumple con la condición de ser igual al tamaño, entonces cada número está ordenado
+  // Si no cumple con ninguna entonces este no estaría ordenado
+  if (ascendente == size-1) {
+    return 1;
+  } else if (decreciente == size-1) {
+    return -1;
+  } else {
+    return 0;
+  }
 }
 
 /*
