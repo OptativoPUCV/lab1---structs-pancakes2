@@ -138,10 +138,11 @@ void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
 
 
   // Inicializo el libro
-  scanf("%s", libro->titulo); // Inicializo el titulo del libro
-  scanf("%s", libro->autor.nombre); // Inicializo el nombre del autor
-  scanf("%d", &libro->autor.anioNacimiento); // Inicializo el año de nacimiento del autor
-  scanf("%d", &libro->anioPublicacion); // Inicializo el año de publicación del libro
+  strcpy(libro->titulo, titulo);
+  strcpy(libro->autor.nombre, nombreAutor);
+  libro->autor.anioNacimiento = anioNacimiento;
+  libro->anioPublicacion = anioPublicacion;
+  // Imprimo el libro
   printf("%s\n", libro->titulo);
   printf("%s\n", libro->autor.nombre);
   printf("%d\n", libro->autor.anioNacimiento);

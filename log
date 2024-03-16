@@ -153,3 +153,9 @@ exercises.c:144:3: error: ignoring return value of ‘scanf’ declared with att
 cc1: all warnings being treated as errors
 Compilation failed
 c6397c4
+Sat 16 Mar 2024 03:05:42 AM UTC: 
+ exercises.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+ tests:  0|2
+total_score: 50/70
+2b18b14
