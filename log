@@ -93,3 +93,17 @@ exercises.c:146:1: error: control reaches end of non-void function [-Werror=retu
 cc1: all warnings being treated as errors
 Compilation failed
 a566a86
+Sat 16 Mar 2024 12:13:51 AM UTC: 
+ exercises.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+In file included from test.c:1:
+exercises.c: In function ‘crearListaEnlazada’:
+exercises.c:146:9: error: variable ‘cabeza’ set but not used [-Werror=unused-but-set-variable]
+  146 |   Nodo* cabeza = NULL;
+      |         ^~~~~~
+exercises.c:150:1: error: control reaches end of non-void function [-Werror=return-type]
+  150 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+5d48e32
