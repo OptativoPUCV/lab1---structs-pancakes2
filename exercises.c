@@ -134,15 +134,12 @@ typedef struct {
 } Libro;
 
 void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor, int anioNacimiento, int anioPublicacion) {
-  // Defino una variable "cantidadLibros" que es dinamica y se le suma uno por cada libro que se inicializa
-
-
-  // Inicializo el libro
+  // Inicializo el libro con la estructura 'libro' y con sus atributos equivaliendo a los parametros de la función
   strcpy(libro->titulo, titulo);
   strcpy(libro->autor.nombre, nombreAutor);
   libro->autor.anioNacimiento = anioNacimiento;
   libro->anioPublicacion = anioPublicacion;
-  // Imprimo el libro
+  // Imprimo el libro accediendo a los atributos de 'libro'
   printf("%s\n", libro->titulo);
   printf("%s\n", libro->autor.nombre);
   printf("%d\n", libro->autor.anioNacimiento);
