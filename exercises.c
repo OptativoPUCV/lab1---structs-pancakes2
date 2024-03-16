@@ -4,20 +4,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Función aux de qsort()
+int compare(const void *a, const void *b) {
+  return (*(int*)a - *(int*)b);
+}
+
 /*
 Ejercicio 1: Encuentra el Elemento Mayor
 Descripción: Escribe una función que tome un arreglo de enteros
 y su tamaño, y devuelva el valor más grande del arreglo.
 */
 
-int compare(const void *a, const void *b) {
-  return (*(int*)a - *(int*)b);
-}
-
-
 int findMax(int arr[], int size) {
+  // Se inicializa la variable que guardará el elemento mayor
   int elemMayor = 0;
   for (int i = 0; i < size; i++) {
+    // Cada vez que encuentre un elemento mayor al actual se reemplaza
     if (arr[i] > elemMayor) {
       elemMayor = arr[i];
     }
@@ -33,13 +35,19 @@ Descripción: Escribe una función que tome un arreglo y su tamaño, y luego
 invierta el orden de sus elementos.
 */
 void reverseArray(int arr[], int size) {
+  
+  // Se crea un arreglo temporal para almacenar los elementos invertidos
   int *arregloInverso = (int *)malloc(size * sizeof(int));
+  
+  // Se inicializa el indice como (size - 1) para ajustar para el 0 index
   int indice = size - 1;
+  
   for (int i = 0; i < size; i++) {
     // Itera el arreglo desde el indice final del arreglo input
     arregloInverso[i] = arr[indice];
     indice--;
   }
+  // Se traslada el arreglo invertido al arreglo original
   for (int i = 0; i < size; i++) {
     arr[i] = arregloInverso[i];
   }
@@ -52,14 +60,17 @@ y su tamaño, y luego devuelva un nuevo arreglo que contenga solo
 los números pares del arreglo original.
 */
 int *filterEvenNumbers(int arr[], int size, int *newSize) { 
+  // Crea un arreglo de enteros para almacenar los números pares
   int *arregloPares = (int *)malloc(size * sizeof(int));
   int indice = 0;
+  // Si hay un numero par en el arreglo, se introduce en el arreglo de pares
   for (int i = 0; i < size; i++) {
     if (arr[i] % 2 == 0) {
       arregloPares[indice] = arr[i];
       indice++;
     }
   }
+  // Se actualiza el tamaño del arreglo de pares
   *newSize = indice;
   return arregloPares;
 }
@@ -72,6 +83,14 @@ ordenados y sus tamaños, y luego fusione estos dos
 arreglos en un tercer arreglo también ordenado.
 */
 void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2, int result[]) {
+  // Para guardar memoria utilizamos el arreglo 'result'
+  
+  /* 
+  Se itera ambos arreglos (al hacer el 'for loop' i < size+size2)
+  Se introducen elementos al arreglo 'result' hasta agotar el 'arr1[]''
+  Al agotarse se introduce el resto del 'arr2[]''
+  Se realiza qsort() a 'result[]'
+  */
   for (int i = 0; i < size1+size2; i++) {
     if (i < size1) {
       result[i] = arr1[i];
@@ -79,6 +98,7 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2, int result[
       result[i] = arr2[i-size1];
     }
   }
+  // Se ordena con qsort() (función compare() implementada en scope global)
   qsort(result, size1+size2, sizeof(int), compare);
 
 }
