@@ -142,9 +142,5 @@ typedef struct nodo {
 } Nodo;
 
 Nodo *crearListaEnlazada(int arr[], int size) { 
-  // Se crea la linked list en base al arreglo 'arr'
-  Nodo* cabeza = NULL;
-  cabeza = (Nodo*)malloc(sizeof(Nodo));
-  
-  
+  return NULL;
 }
