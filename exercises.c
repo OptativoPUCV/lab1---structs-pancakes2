@@ -95,16 +95,17 @@ int checkSorted(int arr[], int size) {
 
   for (int i = 0; i < size-1; i++) {
     // Checkeamos si el arreglo está ordenado de forma ascendente
-    if (arr[i] < arr[i+1]) {
+    if (arr[i] <= arr[i+1]) {
       ascendente++;
     // Checkeamos si es decreciente..
-    } else if (arr[i] > arr[i+1]) {
+    } else if (arr[i] >= arr[i+1]) {
       decreciente++;
     }
   }
   // Lógica para determinar si es ascendente, descendiente o no ordenado
   // Si cada número cumple con la condición de ser igual al tamaño, entonces cada número está ordenado
   // Si no cumple con ninguna entonces este no estaría ordenado
+  printf("ascendente: %d, decreciente: %d\n", ascendente, decreciente);
   if (ascendente == size) {
     return 1;
   } else if (decreciente == size) {
